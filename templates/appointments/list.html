@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Appointments{% endblock %}
+{% block content %}
+<h1>Appointments</h1>
+<a href="{{ url_for('appointments.add_appointment') }}" class="btn btn-primary mb-3">Schedule New</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date/Time</th>
+            <th>Student</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for apt in appointments %}
+        <tr>
+            <td>{{ apt.start_time.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ apt.user.name }}</td>
+            <td>{{ apt.appointment_type }}</td>
+            <td>
+                {% if apt.status == 'pending' %}
+                    <span class="badge bg-warning">Pending</span>
+                {% elif apt.status == 'confirmed' %}
+                    <span class="badge bg-success">Confirmed</span>
+                {% elif apt.status == 'completed' %}
+                    <span class="badge bg-secondary">Completed</span>
+                {% elif apt.status == 'cancelled' %}
+                    <span class="badge bg-danger">Cancelled</span>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('appointments.edit_appointment', id=apt.id) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ url_for('appointments.delete_appointment', id=apt.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Cancel this appointment?')">Delete</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">No appointments found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

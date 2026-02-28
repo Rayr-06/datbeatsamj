@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Record Payment{% endblock %}
+{% block content %}
+<h1>Record New Payment</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="user_id" class="form-label">Student</label>
+        <select class="form-select" id="user_id" name="user_id" required>
+            <option value="">-- Select Student --</option>
+            {% for student in students %}
+            <option value="{{ student.id }}">{{ student.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount ($)</label>
+        <input type="number" step="0.01" class="form-control" id="amount" name="amount" required>
+    </div>
+    <div class="mb-3">
+        <label for="method" class="form-label">Payment Method</label>
+        <select class="form-select" id="method" name="method" required>
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+            <option value="transfer">Bank Transfer</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="appointment_id" class="form-label">Related Appointment (optional)</label>
+        <select class="form-select" id="appointment_id" name="appointment_id">
+            <option value="">-- None --</option>
+            {% for apt in appointments %}
+            <option value="{{ apt.id }}">{{ apt.user.name }} - {{ apt.start_time.strftime('%Y-%m-%d') }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="notes" class="form-label">Notes</label>
+        <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Record Payment</button>
+    <a href="{{ url_for('payments.list_payments') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

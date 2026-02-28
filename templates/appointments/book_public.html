@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Book a Session{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="text-center">Book a Session</h1>
+        <p class="lead text-center">Fill out this form to request a lesson, concert, or consultation.</p>
+        <form method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Your Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="mb-3">
+                <label for="appointment_type" class="form-label">Session Type</label>
+                <select class="form-select" id="appointment_type" name="appointment_type" required>
+                    <option value="lesson">Voice Lesson</option>
+                    <option value="concert">Concert Booking</option>
+                    <option value="consultation">Consultation</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="start_time" class="form-label">Preferred Date & Time</label>
+                <input type="datetime-local" class="form-control" id="start_time" name="start_time" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Additional Details / Questions</label>
+                <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Submit Request</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

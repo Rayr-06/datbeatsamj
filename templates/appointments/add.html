@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Schedule Appointment{% endblock %}
+{% block content %}
+<h1>Schedule New Appointment</h1>
+<form method="post">
+    {% if current_user.role == 'teacher' %}
+    <div class="mb-3">
+        <label for="user_id" class="form-label">Student</label>
+        <select class="form-select" id="user_id" name="user_id" required>
+            <option value="">-- Select Student --</option>
+            {% for student in students %}
+            <option value="{{ student.id }}">{{ student.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+        <label for="appointment_type" class="form-label">Type</label>
+        <select class="form-select" id="appointment_type" name="appointment_type" required>
+            <option value="lesson">Voice Lesson</option>
+            <option value="concert">Concert Booking</option>
+            <option value="consultation">Consultation</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="start_time" class="form-label">Start Date & Time</label>
+        <input type="datetime-local" class="form-control" id="start_time" name="start_time" required>
+    </div>
+    <div class="mb-3">
+        <label for="end_time" class="form-label">End Date & Time (optional)</label>
+        <input type="datetime-local" class="form-control" id="end_time" name="end_time">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description / Notes</label>
+        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Schedule</button>
+    <a href="{{ url_for('appointments.list_appointments') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

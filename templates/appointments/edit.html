@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}Edit Appointment{% endblock %}
+{% block content %}
+<h1>Edit Appointment</h1>
+<form method="post">
+    {% if current_user.role == 'teacher' %}
+    <div class="mb-3">
+        <label for="user_id" class="form-label">Student</label>
+        <select class="form-select" id="user_id" name="user_id" required>
+            {% for student in students %}
+            <option value="{{ student.id }}" {% if student.id == appointment.user_id %}selected{% endif %}>{{ student.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% endif %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ appointment.title }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="appointment_type" class="form-label">Type</label>
+        <select class="form-select" id="appointment_type" name="appointment_type" required>
+            <option value="lesson" {% if appointment.appointment_type == 'lesson' %}selected{% endif %}>Voice Lesson</option>
+            <option value="concert" {% if appointment.appointment_type == 'concert' %}selected{% endif %}>Concert Booking</option>
+            <option value="consultation" {% if appointment.appointment_type == 'consultation' %}selected{% endif %}>Consultation</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="start_time" class="form-label">Start Date & Time</label>
+        <input type="datetime-local" class="form-control" id="start_time" name="start_time" value="{{ appointment.start_time.strftime('%Y-%m-%dT%H:%M') }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="end_time" class="form-label">End Date & Time (optional)</label>
+        <input type="datetime-local" class="form-control" id="end_time" name="end_time" value="{{ appointment.end_time.strftime('%Y-%m-%dT%H:%M') if appointment.end_time else '' }}">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description / Notes</label>
+        <textarea class="form-control" id="description" name="description" rows="3">{{ appointment.description }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status">
+            <option value="pending" {% if appointment.status == 'pending' %}selected{% endif %}>Pending</option>
+            <option value="confirmed" {% if appointment.status == 'confirmed' %}selected{% endif %}>Confirmed</option>
+            <option value="completed" {% if appointment.status == 'completed' %}selected{% endif %}>Completed</option>
+            <option value="cancelled" {% if appointment.status == 'cancelled' %}selected{% endif %}>Cancelled</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="{{ url_for('appointments.list_appointments') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,415 @@
+/* DatBeatsAMJ - Professional Music School Design */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0a0f1e 0%, #1a1f35 100%);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(10, 15, 30, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #ffd700;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffd700 !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.navbar-brand i {
+    color: #ffd700;
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+    transform: translateY(-2px);
+}
+
+/* Hero Section with Background Image */
+.hero-section {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 120px 0;
+    border-bottom: 4px solid #ffd700;
+}
+
+.hero-section h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease;
+}
+
+.hero-section .lead {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Wave Animation */
+.wave-animation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin: 30px 0;
+}
+
+.wave-bar {
+    width: 10px;
+    height: 40px;
+    background: linear-gradient(180deg, #ffd700, #ffaa00);
+    margin: 0 5px;
+    border-radius: 10px;
+    animation: wave 1.2s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255,215,0,0.3);
+}
+
+.wave-bar:nth-child(1) { animation-delay: 0.0s; height: 30px; }
+.wave-bar:nth-child(2) { animation-delay: 0.2s; height: 50px; }
+.wave-bar:nth-child(3) { animation-delay: 0.4s; height: 70px; }
+.wave-bar:nth-child(4) { animation-delay: 0.6s; height: 50px; }
+.wave-bar:nth-child(5) { animation-delay: 0.8s; height: 30px; }
+
+@keyframes wave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(1.5); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Teacher Bio Section */
+.teacher-section {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 50px;
+    margin: 50px 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,215,0,0.2);
+}
+
+.teacher-image {
+    border-radius: 20px;
+    border: 4px solid #ffd700;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+}
+
+.teacher-image:hover {
+    transform: scale(1.02);
+}
+
+/* Achievement Cards */
+.achievement-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,215,0,0.1));
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    border-color: #ffd700;
+    box-shadow: 0 20px 40px rgba(255,215,0,0.2);
+}
+
+.achievement-card i {
+    font-size: 3rem;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+.achievement-card h5 {
+    color: #ffd700;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.achievement-card p {
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+/* Demo Video Section */
+.demo-video-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.demo-video-card:hover {
+    border-color: #ffd700;
+    transform: scale(1.02);
+}
+
+.demo-video-card .ratio {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.demo-video-card p {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #ffd700;
+}
+
+/* Genres Grid */
+.genre-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 50px;
+    padding: 20px 15px;
+    text-align: center;
+    border: 1px solid rgba(255,215,0,0.2);
+    transition: all 0.3s;
+    margin-bottom: 20px;
+}
+
+.genre-item:hover {
+    background: rgba(255,215,0,0.15);
+    transform: scale(1.05);
+    border-color: #ffd700;
+}
+
+.genre-item i {
+    font-size: 2.5rem;
+    color: #ffd700;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.genre-item h5 {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.cta-section h3 {
+    color: #0a0f1e;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    color: #0a0f1e;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-section .btn-primary {
+    background: #0a0f1e;
+    border: none;
+    padding: 15px 40px;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.cta-section .btn-primary:hover {
+    background: #ffffff;
+    color: #0a0f1e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.cta-section .btn-outline-secondary {
+    background: transparent;
+    border: 2px solid #0a0f1e;
+    color: #0a0f1e;
+    padding: 15px 40px;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-left: 15px;
+}
+
+.cta-section .btn-outline-secondary:hover {
+    background: #0a0f1e;
+    color: #ffd700;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background: #0a0f1e !important;
+    border-top: 2px solid #ffd700;
+    padding: 30px 0;
+}
+
+footer p {
+    color: #ffffff;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Card Styles for Dashboard */
+.dashboard-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,215,0,0.1));
+    border: 1px solid rgba(255,215,0,0.3);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+.dashboard-card .display-6 {
+    color: #ffd700;
+    font-weight: 800;
+}
+
+/* Table Styles */
+.table {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    color: #ffffff;
+}
+
+.table thead {
+    background: #ffd700;
+    color: #0a0f1e;
+}
+
+.table th {
+    font-weight: 700;
+    border: none;
+}
+
+.table td {
+    border-color: rgba(255,215,0,0.2);
+}
+
+/* Button Styles */
+.btn-primary {
+    background: #ffd700;
+    border: none;
+    color: #0a0f1e;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: #ffaa00;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255,215,0,0.3);
+}
+
+.btn-outline-primary {
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+}
+
+.btn-outline-primary:hover {
+    background: #ffd700;
+    color: #0a0f1e;
+}
+
+/* Form Styles */
+.form-control, .form-select {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,215,0,0.3);
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255,255,255,0.15);
+    border-color: #ffd700;
+    box-shadow: 0 0 0 0.25rem rgba(255,215,0,0.25);
+    color: #ffffff;
+}
+
+.form-label {
+    color: #ffd700;
+    font-weight: 600;
+}
+
+/* Alert Styles */
+.alert {
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.2);
+    border-left-color: #28a745;
+    color: #ffffff;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.2);
+    border-left-color: #dc3545;
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.2rem;
+    }
+    
+    .cta-section {
+        padding: 30px;
+    }
+    
+    .cta-section h3 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-section .btn {
+        display: block;
+        margin: 10px 0 !important;
+    }
+}

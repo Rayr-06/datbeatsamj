@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}My Dashboard{% endblock %}
+{% block content %}
+<h1>Welcome, {{ current_user.name }}!</h1>
+
+<h3 class="mt-4">Your Upcoming Appointments</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date/Time</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for apt in appointments %}
+        <tr>
+            <td>{{ apt.start_time.strftime('%Y-%m-%d %H:%M') }}</td>
+            <td>{{ apt.appointment_type }}</td>
+            <td>{{ apt.status }}</td>
+            <td>
+                <a href="{{ url_for('appointments.edit_appointment', id=apt.id) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ url_for('appointments.delete_appointment', id=apt.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Cancel this appointment?')">Cancel</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No appointments scheduled.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('appointments.add_appointment') }}" class="btn btn-success">Book New Lesson</a>
+{% endblock %}

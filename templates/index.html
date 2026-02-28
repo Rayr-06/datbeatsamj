@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% block title %}DatBeatsAMJ - Premier Vocal Studio{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section with Teacher Image Background -->
+<div class="hero-section">
+    <div class="container text-center">
+        <div class="wave-animation">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+        </div>
+        <h1 class="display-1 fw-bold">DatBeatsAMJ</h1>
+        <p class="lead">Where Voices Find Their True Expression</p>
+        <p class="fs-4 mb-4">Classical · Devotional · Patriotic · Film · Gamaka</p>
+        <a href="{{ url_for('appointments.book_public') }}" class="btn btn-primary btn-lg me-2">
+            <i class="bi bi-calendar-check"></i> Book Free Trial
+        </a>
+        <a href="#about" class="btn btn-outline-primary btn-lg">
+            <i class="bi bi-play-circle"></i> Watch Demo
+        </a>
+    </div>
+</div>
+
+<!-- About Teacher Section -->
+<div id="about" class="teacher-section">
+    <div class="row align-items-center">
+        <div class="col-md-5">
+            <!-- Replace with actual teacher photo -->
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                 class="img-fluid teacher-image" alt="Teacher">
+        </div>
+        <div class="col-md-7">
+            <h2 class="display-5 mb-4" style="color: #ffd700;">Meet Your Mentor</h2>
+            <p class="fs-4 mb-3">15+ Years of Transforming Voices</p>
+            <p class="fs-5 mb-4">Trained over 500 students across India and abroad. Specializes in bringing out the unique quality in every voice – from classical purity to contemporary expression.</p>
+            <div class="row">
+                <div class="col-6">
+                    <i class="bi bi-award-fill" style="color: #ffd700; font-size: 2rem;"></i>
+                    <h6>Gaanashree Award 2023</h6>
+                </div>
+                <div class="col-6">
+                    <i class="bi bi-mic-fill" style="color: #ffd700; font-size: 2rem;"></i>
+                    <h6>Playback Singer Mentor</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Achievements Grid -->
+<div class="my-5">
+    <h2 class="text-center mb-5" style="color: #ffd700;">Achievements & Recognition</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="achievement-card">
+                <i class="bi bi-trophy-fill"></i>
+                <h5>Best Vocal Coach 2023</h5>
+                <p>City Music Academy Award for Excellence in Vocal Education</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="achievement-card">
+                <i class="bi bi-people-fill"></i>
+                <h5>500+ Students Trained</h5>
+                <p>From beginners to professional playback singers</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="achievement-card">
+                <i class="bi bi-film"></i>
+                <h5>15+ Film Industry Students</h5>
+                <p>Active playback singers in Tollywood & Bollywood</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Demo Performances -->
+<div class="my-5">
+    <h2 class="text-center mb-5" style="color: #ffd700;">Listen to the Magic</h2>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="demo-video-card">
+                <div class="ratio ratio-16x9">
+                    <!-- Replace with actual YouTube video ID -->
+                    <iframe src="https://www.youtube.com/embed/your-video-id-1" 
+                            title="Classical Performance" 
+                            allowfullscreen></iframe>
+                </div>
+                <p><i class="bi bi-music-note-beamed"></i> Classical Rendition</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="demo-video-card">
+                <div class="ratio ratio-16x9">
+                    <!-- Replace with actual YouTube video ID -->
+                    <iframe src="https://www.youtube.com/embed/your-video-id-2" 
+                            title="Devotional Song" 
+                            allowfullscreen></iframe>
+                </div>
+                <p><i class="bi bi-stars"></i> Devotional</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Genres Taught -->
+<div class="my-5">
+    <h2 class="text-center mb-5" style="color: #ffd700;">Vocal Styles We Master</h2>
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-music-note-beamed"></i>
+                <h5>Classical</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-heart-fill"></i>
+                <h5>Devotional</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-flag-fill"></i>
+                <h5>Patriotic</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-film"></i>
+                <h5>Film Songs</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-stars"></i>
+                <h5>Gamaka</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-headphones"></i>
+                <h5>Contemporary</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-mic"></i>
+                <h5>Playback</h5>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="genre-item">
+                <i class="bi bi-soundwave"></i>
+                <h5>Voice Culture</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonials -->
+<div class="my-5">
+    <h2 class="text-center mb-5" style="color: #ffd700;">What Students Say</h2>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="achievement-card">
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <p class="mt-3">"My classical singing improved dramatically in just 3 months. The attention to gamaka is exceptional."</p>
+                <p class="fw-bold">- Priya S.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="achievement-card">
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <p class="mt-3">"Finally found a teacher who understands both classical techniques and film singing requirements."</p>
+                <p class="fw-bold">- Rahul K.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="achievement-card">
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <i class="bi bi-star-fill" style="color: #ffd700;"></i>
+                <p class="mt-3">"The devotional singing classes transformed my temple choir performances. Highly recommend!"</p>
+                <p class="fw-bold">- Lakshmi M.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Final Call to Action -->
+<div class="cta-section">
+    <h3>Ready to Begin Your Musical Journey?</h3>
+    <p>Join DatBeatsAMJ today and discover the voice you never knew you had.</p>
+    <a href="{{ url_for('auth.register') }}" class="btn btn-primary btn-lg">
+        <i class="bi bi-person-plus"></i> Register Now
+    </a>
+    <a href="{{ url_for('appointments.book_public') }}" class="btn btn-outline-secondary btn-lg">
+        <i class="bi bi-calendar-week"></i> Book Trial Session
+    </a>
+</div>
+
+{% endblock %}

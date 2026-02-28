@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<h1>Students</h1>
+<a href="{{ url_for('students.add_student') }}" class="btn btn-primary mb-3">Add New Student</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Joined</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.phone }}</td>
+            <td>{{ student.created_at.strftime('%Y-%m-%d') }}</td>
+            <td>
+                <a href="{{ url_for('students.edit_student', id=student.id) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ url_for('payments.student_payments', student_id=student.id) }}" class="btn btn-sm btn-info">Payments</a>
+                <a href="{{ url_for('students.delete_student', id=student.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
