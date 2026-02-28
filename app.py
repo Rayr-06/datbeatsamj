@@ -29,6 +29,14 @@ def create_app():
     login_manager.login_view = 'auth.login'
     mail.init_app(app)
 
+    # Auto-create database tables on startup (only if they don't exist)
+    with app.app_context():
+        try:
+            db.create_all()
+            print("✅ Database tables created or already exist.")
+        except Exception as e:
+            print(f"⚠️ Error creating database tables: {e}")
+
     # Register blueprints
     from routes import main, students, appointments, payments
     import auth
